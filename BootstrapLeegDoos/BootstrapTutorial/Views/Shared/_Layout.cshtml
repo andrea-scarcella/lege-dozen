@@ -9,55 +9,40 @@
     <style>
         .socials {
             padding: 10px;
-        }  
+        }
     </style>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li> 
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <ul class="dropdown-menu">
-                        <li class="socials"><<g:plusone annotation="inline" width="150"></g:plusone>/li>
-                        <li class="socials"><div class="fb-like" 
-                                                 data-href="https://developers.facebook.com/docs/plugins"
-                                                 data-height="100"
-                                                 data-width="100"
-                                                 data-colorscheme="light"
-                                                 data-layout="standard"
-                                                 data-action="like"
-                                                 data-show-faces="true"
-                                                 data-send="false"></div></li>
-                        <li class="socials"></li>
-                    </ul>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <ul class="nav navbar-nav">
+            <li>
+                @Html.ActionLink("Beter vervoegen", "Index", "Home", null, new { @class = "navbar-brand" })
+            </li>
+           @* <li class="active"><a href="#">Home</a></li>*@
+            <li><a href="price.html">Price</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @*<li class="socials"><g:plusone annotation="inline" width="150"></g:plusone></li>
+                    <li class="socials"><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div></li>*@
+                    <li class="socials">
+                        <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+                        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+                    </li>
                 </ul>
-            </div>
-        </div>
-    </div>
+            </li>
+            @*<li></li>*@
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Login", "Index", "Account", null, new { @class = "navbar-link " })</li>
+        </ul>
+            
+</nav>
+
     <div class="container body-content">
 
 
-        <div id="fb-root"></div>
-        <script>
-(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=123";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-         
         @RenderBody()
         <hr />
         <footer>
