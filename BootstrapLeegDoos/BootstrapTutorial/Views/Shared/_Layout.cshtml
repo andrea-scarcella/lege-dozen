@@ -15,117 +15,76 @@
             margin-left: 0px;
             margin-right: 0px;
         }
-
-        .hide-y-scrollbar {
-            overflow-y: hidden;
-        }
-
-        .y-scrollanyway {
-            overflow-y: scroll;
-        }
     </style>
 </head>
 <body>
+
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
         <div class="container">
             <div class="navbar-header">
                 @Html.ActionLink("Beter vervoegen", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
-        </div>
 
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span> Top Deelnemers</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Over ons<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Bedrijfsprofiel</a></li>
-                            <li><a href="#">Contactgegevens</a></li>
-                        </ul>
-                    </li>
-                    @*<li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social<b class="caret"></b></a>
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home"></span> Home</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-star"></span> Top Deelnemers</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Over ons<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li class="socials">
-                                    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-                                    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
-                                </li>
+                                <li><a href="#">Bedrijfsprofiel</a></li>
+                                <li><a href="#">Contactgegevens</a></li>
                             </ul>
-                        </li>*@
+                        </li>
 
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Waar bent u op zoek naar?">
+                        </div>
+                        <button type="submit" class="btn btn-default">Zoeken</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Inloggen", "Index", "Account", null, new { @class = "" })</li>
+                    </ul>
+                </div>
 
-                </ul>
-                <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Waar bent u op zoek naar?">
-                    </div>
-                    <button type="submit" class="btn btn-default">Zoeken</button>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-asterisk"></span> Book Tickets</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-info-sign"></span> Reservation<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Cancel</a></li>
-                            <li><a href="#">Confirm</a></li>
-                        </ul>
-                    </li>
-
-
-                </ul>
             </div>
-
         </div>
-
     </nav>
 
- 
-    <div class="hide-y-scrollbar">
-        <div class="y-scrollanyway">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2">
-                        <h3 class="text-center">Type 1</h3>
-                    </div>
 
-                    <div class="col-md-8">
 
-                        <h3 class="text-center">Type 2</h3>
-                        <p>Dummy Text..</p>
+    <div class="container-fluid">
 
-                    </div>
+        <div class="row">
+            <div class="col-md-2">
 
-                    <div class="col-md-2">
-                        <h3 class="text-center">Type 3</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <h3 class="text-center">Left filler</h3>
-                    </div>
-                    <div class="col-md-8">
-                        @RenderBody()
-                        <hr />
-                        <footer>
-                            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-                        </footer>
-                    </div>
-                    <div class="col-md-2">
-                        <h3 class="text-center">Right filler</h3>
-                    </div>
-                </div>
             </div>
+            <div class="col-md-8">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                </footer>
+            </div>
+            <div class="col-md-2">
 
+            </div>
         </div>
     </div>
-
-
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
+
 </html>
